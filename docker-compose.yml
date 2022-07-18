@@ -61,8 +61,6 @@ services:
       timeout: 10s
       retries: 5
     restart: always
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     # networks:
     #   - my_project_network
     # expose:
@@ -107,23 +105,23 @@ services:
       retries: 5
     restart: always
 
-  nginx:
-    build: .    
-    ports:
-      - 8290:80
-    volumes:
-      - /srv/git:/srv/git
-      # add your custom username and password (default is admin, admin)
-      - ./htpasswd:/srv/htpasswd
-      # if you want to use a custom configuration
-      - ./default.conf:/etc/nginx/conf.d/default.conf
-    environment:
-      GIT_POSTBUFFER: 1048576
-    networks: 
-      - frontend2  
+  # nginx:
+  #   build: .    
+  #   ports:
+  #     - 8290:80
+  #   volumes:
+  #     - /srv/git:/srv/git
+  #     # add your custom username and password (default is admin, admin)
+  #     - ./htpasswd:/srv/htpasswd
+  #     # if you want to use a custom configuration
+  #     - ./default.conf:/etc/nginx/conf.d/default.conf
+  #   environment:
+  #     GIT_POSTBUFFER: 1048576
+  #   networks: 
+  #     - frontend2  
     
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
 networks: 
   frontend2:
 
