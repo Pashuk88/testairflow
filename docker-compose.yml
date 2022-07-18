@@ -61,6 +61,8 @@ services:
       timeout: 10s
       retries: 5
     restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     # networks:
     #   - my_project_network
     # expose:
