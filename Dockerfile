@@ -1,8 +1,5 @@
 FROM phusion/baseimage:18.04-1.0.0
 
-LABEL maintainer="Marco Pompili"
-LABEL email="docker@mg.odd.red"
-
 RUN apt-get -q -q update && \
     apt-get -y install gettext-base nginx fcgiwrap git
 
